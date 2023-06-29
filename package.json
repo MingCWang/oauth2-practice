@@ -3,5 +3,13 @@
 	"workspaces": [
 		"backend",
 		"frontend"
-	]
+	],
+	"scripts": {
+		"frontend": "cd frontend && npm run dev",
+		"backend": "cd backend && nodemon app.js",
+		"start": "frontend && backend"
+	},
+	"dependencies": {
+		"eslint": "^8.43.0"
+	}
 }
