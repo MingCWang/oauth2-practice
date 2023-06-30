@@ -8,14 +8,21 @@ import {
 /** 
  * Pages Import 
  * */
-import App from './App.jsx'
+import Root from './routes/root.jsx'
 import ErrorPage from './error-page.jsx'
+import Login from './routes/login.jsx'
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <App />,
-		errorElement: <ErrorPage />
+		element: <Root />,
+		errorElement: <ErrorPage />,
+		children: [
+			{
+				path: 'login',
+				element: <Login />,
+			},
+		],
 	}
 ])
 
