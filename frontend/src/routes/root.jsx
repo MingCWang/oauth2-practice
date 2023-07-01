@@ -1,5 +1,7 @@
 
 import { Outlet, Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+
 
 
 function HomeSideBar() {
@@ -19,18 +21,29 @@ function HomeSideBar() {
 	)
 }
 
+
+
 function PageSideBar() {
+
+	const [sidebar, setSidebar] = useState(false);
+
+	function toggleSideBar() {
+		setSidebar(!sidebar);
+	}
+
+	let sidebarStyle = sidebar ? 'sidebar-page' : 'sidebar-page-hidden';
+	let burgerStyle = sidebar ? 'burger' : 'burger-hidden';
 	return (
 		<>
-			<button id="burger">
+			<button id={burgerStyle} onClick={toggleSideBar}>
 				<div className="line"></div>
 				<div className="line"></div>
 			</button>
-			<div id="sidebar-page">
+			<div id={sidebarStyle}>
 				<nav>
 					<ul id="navbar-page">
-						<Link to={`/`}>Home</Link>
-						<Link to={`/login`}>Login</Link>
+						<Link className="link" to={`/`}>Home</Link>
+						<Link className="link" to={`/login`}>Login</Link>
 					</ul>
 				</nav>
 			</div>

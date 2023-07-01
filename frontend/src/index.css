@@ -5,6 +5,9 @@
 	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
 	background-color: #242424;
+
+	margin: 0px;
+	padding: 0px;
 }
 
 * {
@@ -26,21 +29,6 @@ a:hover {
 	width: 15px;
 	height: 1px;
 	background-color: rgba(255, 255, 255, 0.87);
-}
-
-#burger {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	height: 12px;
-	border: none;
-	background-color: transparent;
-	margin-left: 20px;
-	margin-top: 20px;
-}
-
-#burger:hover {
-	cursor: pointer;
 }
 
 
@@ -68,14 +56,91 @@ a:hover {
 
 /* sidebar for other pages */
 
+#burger {
+	display: flex;
+	position: fixed;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 12px;
+	border: none;
+	background-color: transparent;
+	margin: 20px 0px 10px 110px;
+
+	transition: margin-left 0.5s ease-in-out;
+	z-index: 1;
+
+}
+
+#burger:hover {
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+#burger-hidden {
+	display: flex;
+	position: fixed;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 12px;
+	border: none;
+	background-color: transparent;
+	margin: 20px 0px 10px 20px;
+
+	transition: margin-left 0.5s ease-in-out;
+	z-index: 1;
+}
+
+#burger-hidden:hover {
+	cursor: pointer;
+	opacity: 0.8;
+}
+
 #sidebar-page {
 	background-color: #3c3838;
-	width: 160px;
+	opacity: 0.8;
+	width: 130px;
 	height: 80vh;
+	border-bottom-right-radius: 10px;
+	padding-top: 20px;
+	display: flex;
+	flex-direction: column;
+	padding-right: 20px;
+	transition: transform 0.5s ease-in-out;
+}
+
+#sidebar-page-hidden {
+	transform: translateX(-100%);
+	background-color: #3c3838;
+	opacity: 0.8;
+	width: 130px;
+	height: 80vh;
+	border-bottom-right-radius: 10px;
+	padding-top: 20px;
+	display: flex;
+	flex-direction: column;
+	padding-right: 20px;
+	transition: transform 0.5s ease-in-out;
+
 }
 
 #navbar-page {
 	display: flex;
 	flex-direction: column;
+	list-style-type: none;
+	margin-left: 25px;
+	margin-top: 20px;
+}
 
+#navbar-page-hidden {
+	transform: translateX(-100%);
+
+}
+
+.link {
+	margin-bottom: 5px;
+	width: auto;
+}
+
+.link:hover {
+	cursor: pointer;
 }
