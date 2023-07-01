@@ -25,11 +25,6 @@ a:hover {
 	color: #535bf2;
 }
 
-.line {
-	width: 15px;
-	height: 1px;
-	background-color: rgba(255, 255, 255, 0.87);
-}
 
 
 #title {
@@ -37,6 +32,7 @@ a:hover {
 	margin-bottom: 20px;
 }
 
+/* sidbar */
 #navbar {
 	display: flex;
 	flex-direction: column;
@@ -54,7 +50,31 @@ a:hover {
 	margin-left: 32px;
 }
 
+
+
 /* sidebar for other pages */
+.line {
+	width: 15px;
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.87);
+	transition: transform 0.5s ease-in-out;
+}
+
+.line-top {
+	width: 15px;
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.87);
+	transform: rotate(45deg) translateY(5px);
+	transition: transform 0.5s ease-in-out;
+}
+
+.line-bottom {
+	width: 15px;
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.87);
+	transform: rotate(-45deg) translateY(-5px);
+	transition: transform 0.5s ease-in-out;
+}
 
 #burger {
 	display: flex;
@@ -96,6 +116,7 @@ a:hover {
 }
 
 #sidebar-page {
+	position: fixed;
 	background-color: #3c3838;
 	opacity: 0.8;
 	width: 130px;
@@ -109,6 +130,7 @@ a:hover {
 }
 
 #sidebar-page-hidden {
+	position: fixed;
 	transform: translateX(-100%);
 	background-color: #3c3838;
 	opacity: 0.8;
@@ -143,4 +165,15 @@ a:hover {
 
 .link:hover {
 	cursor: pointer;
+}
+
+/* login */
+
+.login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
 }
