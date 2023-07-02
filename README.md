@@ -7,7 +7,8 @@ This is a project to practice oauth2.0 without the use of passport and other add
 - How to deploy a website with AWS
 ## To dos 
 - [x] finish the nav bar and the animations with css
-- [ ] implement oauth functionality 
+- [x] implement oauth functionality 
+- [ ] create user session and store data in the database 
 - [ ] Research on how to deploy the website with aws  
 
 ## Notes
