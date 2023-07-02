@@ -4,6 +4,8 @@ This is a project to practice oauth2.0 without the use of passport and other add
 ## Other skills I learned
 - How to use client side routing with react-router-dom
 - React conditional rendering and animations
+- Became more familiar with front end/back end communication
+- How to structure a monorepo project
 - How to deploy a website with AWS
 ## To dos 
 - [x] finish the nav bar and the animations with css
