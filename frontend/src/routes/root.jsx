@@ -1,46 +1,48 @@
 
 import { Outlet, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import getJWT from '../utils/getJWT';
+import jwtDecode from 'jwt-decode';
 
 import PageSideBar from '../components/PageSideBar';
 import HomeSideBar from '../components/HomeSideBar';
-import { AuthProvider } from '../utils/auth.jsx';
 
-import { useAuth } from "../utils/auth.js";
+// import { useAuth } from "../utils/auth.js";
 
 export default function Root() {
 
-	const auth = useAuth();
+	function isLogin() {
+		const token = localStorage.getItem('jwt');
+		if (token) {
+			const { name } = jwtDecode(token);
+			return name
+		}
+		return false
+	}
+
 	const [user, setUser] = useState('');
 
 	useEffect(() => {
-		if (localStorage.getItem('jwt')) {
-			setUser(localStorage.getItem('jwt'))
-			auth.login(user)
+		getJWT()
+		const name = isLogin();
+		if (name) {
+			setUser(name);
 		}
-	}, [auth, user]);
-
-
-	useEffect(() => {
-		getJWT();
 	}, []);
 
 
 	let currentPath = useLocation().pathname;
 	let sidebar
 	if (currentPath === '/') {
-		sidebar = <HomeSideBar />
+		sidebar = <HomeSideBar user={user} />
 	} else {
 		sidebar = <PageSideBar />
 	}
 
 	return (
 		<>
-			<AuthProvider>
-				{sidebar}
-				<Outlet />
-			</AuthProvider>
+			{sidebar}
+			<Outlet />
 
 		</>
 	)
