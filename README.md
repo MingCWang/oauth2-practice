@@ -10,7 +10,8 @@ This is a project to practice oauth2.0 without the use of passport and other add
 ## To dos 
 - [x] finish the nav bar and the animations with css
 - [x] implement oauth functionality 
-- [ ] create user session and store data in the database 
+- [x] create user session and store data in the database 
+- [ ] implment protected routes in react
 - [ ] Research on how to deploy the website with aws  
 
 ## Notes
