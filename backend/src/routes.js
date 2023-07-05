@@ -1,9 +1,9 @@
 
 import express from 'express';
-import { googleOauthHandler } from './controllers/session.js';
+import { googleOauthHandler } from './controllers/googleOAuth.js';
 const router = express.Router();
 
-router.get('/api/sessions/oauth/google', (req, res) => {
+router.post('/api/retrieve-token', (req, res) => {
 	googleOauthHandler(req, res);
 })
 

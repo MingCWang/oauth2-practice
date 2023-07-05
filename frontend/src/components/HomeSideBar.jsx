@@ -8,6 +8,7 @@ export default function HomeSideBar() {
 					<ul id="navbar">
 						<Link to={`/`}>Home</Link>
 						<Link to={`/login`}>Login</Link>
+						<Link to={`/about`}>About</Link>
 					</ul>
 				</nav>
 				<h1 id="title">OAuth2.0 practice</h1>
