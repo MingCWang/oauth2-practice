@@ -4,7 +4,7 @@ export default function Login() {
 	return (
 		<>
 			<div className="login">
-				<a href={getGoogleUrl()} className=""> Login in with google</a>
+				<a href={getGoogleUrl()} className="loginTitle"> Login in with google</a>
 			</div >
 		</>
 	)
