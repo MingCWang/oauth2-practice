@@ -12,7 +12,7 @@ This is a project to practice oauth2.0 without the use of passport and other add
 - [x] implement oauth functionality 
 - [x] create user session and store data in the database 
 - [ ] learn useContext hooks and useRef hooks
-- [ ] implment protected routes in react
+- [x] implment protected routes in react
 - [ ] Research on how to deploy the website with aws  
 
 ## Notes
