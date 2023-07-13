@@ -24,11 +24,15 @@ export default function HomeSideBar({ user }) {
 						)}
 						<Link to={`/about`}>About</Link>
 					</ul>
+
+				</nav>
+				<div className="titleContainer">
+					<h1 id="title">OAuth2.0 practice</h1>
 					{user != '' && (
 						<div id="user">{user}</div>
 					)}
-				</nav>
-				<h1 id="title">OAuth2.0 practice</h1>
+				</div>
+
 
 			</div>
 		</>

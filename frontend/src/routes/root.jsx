@@ -1,5 +1,5 @@
-
 import { Outlet, useLocation } from 'react-router-dom';
+
 import { useState, useEffect } from 'react';
 import getJWT from '../utils/getJWT';
 import jwtDecode from 'jwt-decode';
@@ -20,29 +20,41 @@ export default function Root() {
 		return false
 	}
 
+	const [loading, setLoading] = useState(false);
 	const [user, setUser] = useState('');
 
 	useEffect(() => {
-		getJWT()
-		const name = isLogin();
-		if (name) {
-			setUser(name);
-		}
+		getJWT(setLoading)
+			.then((result) => {
+				const name = isLogin();
+				if (name) {
+					setUser(name);
+				}
+				if (result) {
+					setLoading(false);
+				}
+			}).catch((err) => {
+				console.log(err);
+			})
 	}, []);
-
 
 	let currentPath = useLocation().pathname;
 	let sidebar
 	if (currentPath === '/') {
 		sidebar = <HomeSideBar user={user} />
 	} else {
-		sidebar = <PageSideBar />
+		sidebar = <PageSideBar user={user} />
 	}
 
-	return (
+	const pageComponent = (
 		<>
 			{sidebar}
 			<Outlet />
+		</>
+	)
+	return (
+		<>
+			{loading == true ? (<h1>loading</h1>) : pageComponent}
 
 		</>
 	)

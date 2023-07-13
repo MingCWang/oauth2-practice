@@ -1,10 +1,18 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-export default function PageSideBar() {
+
+
+// eslint-disable-next-line react/prop-types
+export default function PageSideBar({ user }) {
 	const [sidebar, setSidebar] = useState(false);
 
 	function toggleSideBar() {
 		setSidebar(!sidebar);
+	}
+
+	function Logout() {
+		localStorage.removeItem('jwt');
+		window.location.reload();
 	}
 
 	let sidebarStyle = sidebar ? 'sidebar-page' : 'sidebar-page-hidden';
@@ -21,9 +29,17 @@ export default function PageSideBar() {
 				<nav>
 					<ul id="navbar-page">
 						<Link className="link" to={`/`}>Home</Link>
-						<Link className="link" to={`/login`}>Login</Link>
+						{user == '' && (
+							<Link className="link" to={`/login`}>Login</Link>
+						)}
+						{user != '' && (
+							<Link className="link" onClick={() => Logout()}>Logout</Link>
+						)}
 						<Link className="link" to={`/about`}>About</Link>
 					</ul>
+					{user != '' && (
+						<div id="userOther">{user}</div>
+					)}
 				</nav>
 			</div>
 		</>
