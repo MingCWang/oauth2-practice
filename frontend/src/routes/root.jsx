@@ -24,18 +24,24 @@ export default function Root() {
 	const [user, setUser] = useState('');
 
 	useEffect(() => {
-		getJWT(setLoading)
-			.then((result) => {
-				const name = isLogin();
-				if (name) {
-					setUser(name);
-				}
-				if (result) {
-					setLoading(false);
-				}
-			}).catch((err) => {
-				console.log(err);
-			})
+		const urlParams = new URLSearchParams(window.location.search);
+		const code = urlParams.get('code');
+		if (code) {
+			setLoading(true);
+			getJWT(code)
+				.then((result) => {
+					console.log(result);
+					if (result) {
+						setLoading(false);
+					}
+				}).catch((err) => {
+					console.log(err);
+				})
+		}
+		const name = isLogin();
+		if (name) {
+			setUser(name);
+		}
 	}, []);
 
 	let currentPath = useLocation().pathname;
